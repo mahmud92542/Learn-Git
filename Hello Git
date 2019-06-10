@@ -1,0 +1,58 @@
+Hello Git
+Git is a software that allows you to keep track of changes made to a project over time. 
+Git works by recording the changes you make to a project, storing those changes, then allowing you to reference them as needed.
+
+====================================
+
+*git init
+	The word init means initialize. The command sets up all the tools Git needs to begin tracking changes made to the project.
+
+====================================
+
+Git Workflow
+
+A Git project can be thought of as having three parts:
+
+1. A Working Directory: where you’ll be doing all the work: creating, editing, deleting and organizing files
+2. A Staging Area: where you’ll list changes you make to the working directory
+3. A Repository: where Git permanently stores those changes as different versions of the project
+The Git workflow consists of editing files in the working directory,adding files to the staging area,and saving changes to a Git repository.
+
+git init => git add => git commit
+
+====================================
+
+*git status
+	The git status command displays the state of the working directory and the staging area.
+	It lets you see which changes have been staged, which haven't, and which files aren't being tracked by Git.
+	Status output does not show you any information regarding the committed project history.
+	
+====================================
+
+*git add (git add 'filename')
+	Add files to the staging area by using the "git add" command and passing necessary options.
+
+====================================
+
+*git diff (git diff 'filename')
+	we can check the differences between the working directory and the staging area with this command.
+	
+=====================================
+
+*git commit (git commit -m "Complete first line of dialogue")
+	A commit is the last step in our Git workflow. A commit permanently stores changes from the staging area inside the repository.
+	
+	Standard Conventions for Commit Messages:
+	
+	Must be in quotation marks
+	Written in the present tense
+	Should be brief (50 characters or less) when using -m
+	
+======================================
+
+*git log
+	you’ll need to refer back to an earlier version of a project. 
+	Commits are stored chronologically in the repository and can be viewed with git log command.
+	
+========================================
+
