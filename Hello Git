@@ -55,4 +55,3 @@ git init => git add => git commit
 	Commits are stored chronologically in the repository and can be viewed with git log command.
 	
 ========================================
-
