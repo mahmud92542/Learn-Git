@@ -1,0 +1,43 @@
+When working on a Git project, sometimes we make changes that we want to get rid of.
+Git offers a few eraser-like features that allow us to undo mistakes during project creation.
+In this lesson, we’ll learn some of these features.
+To start out, let’s review the basic Git workflow.
+
+===================================================
+HEAD COMMIT
+
+*git show HEAD
+	In Git, the commit you are currently on is known as the HEAD commit. In many cases, the most recently made commit is the HEAD commit.
+	
+====================================================
+GIT CHECKOUT
+
+*git checkout HEAD 'filename'
+	What if you decide to change a line in the working directory, but then decide you wanted to discard that change?
+	You could rewrite the line how it was originally, but what if you forgot the exact wording?
+	The command will restore the file in your working directory to look exactly as it did when you last made a commit.
+	
+=====================================================
+MORE GIT ADD
+
+*git add 'filename_1' 'filename_2'
+	In Git, it’s common to change many files, add those files to the staging area, and commit them to a repository in a single commit.
+
+======================================================
+GIT RESET I
+
+*git reset HEAD 'filename'
+	What if, before you commit, you accidentally delete an important line! 
+	This command resets the file in the staging area to be the same as the HEAD commit.
+	It does not discard file changes from the working directory, it just removes them from the staging area.
+	
+========================================================
+GIT RESET II
+
+*git reset commit_SHA
+	This command works by using the first 7 characters of the SHA of a previous commit.
+	For example, if the SHA of the previous commit is 5d692065cf51a2f50ea8e7b19b5a7ae512f633ba,
+	use: git reset 5d69206
+	HEAD is now set to that previous commit.
+	
+==========================================================
