@@ -1,0 +1,125 @@
+GIT BRANCH
+
+*git branch (“which branch am I on?”)
+
+
+Up to this point, we’ve worked in a single Git branch called master.
+Git allows us to create branches to experiment with versions of a project.
+Imagine you want to create version of a story with a happy ending.
+You can create a new branch and make the happy ending changes to that branch only. 
+It will have no effect on the master branch until you’re ready to merge the happy ending to the master branch.
+
+======================================================
+
+BRANCHING OVERVIEW
+
+#The circles are commits, and together form the Git project’s commit history.
+#New Branch is a different version of the Git project. It contains commits from Master but also has commits that Master does not have.
+
+=======================================================
+
+GIT BRANCH 2
+
+*git branch 'new_branch' (To create a new branch)
+
+	The Git project has only one branch: master.
+	Here new_branch would be the name of the new branch you create, like photos or blurb.
+	Be sure to name your branch something that describes the purpose of the branch.
+	Also, branch names can’t contain whitespaces: new-branch and new_branch are valid branch names, but new branch is not.
+
+=========================================================
+
+GIT CHECKOUT
+
+*git checkout 'branch_name' (witch to the new branch)
+	
+	The master and NEW branches are identical: they share the same exact commit history.
+	Once you switch branch, be now able to make commits on the branch that have no impact on master.
+	You can continue your workflow, while master stays intact!
+
+===========================================================
+
+COMMIT ON NEW BRANCH
+
+*git add 'filename' (adding new file from new branch)
+*git commit -m "Commit message" (commit from new branch)
+
+	All the commands you do on master, you can also do on this branch.
+	
+============================================================
+
+GIT MERGE
+
+*git merge 'branch_name'
+
+	What if you wanted include all the changes made to the new branch on the master branch?
+	We can easily accomplish this by merging the branch into master.
+	
+	In a moment, you’ll merge branches. Keep in mind:
+
+	1. Your goal is to update master with changes you made to fencing.
+	2. fencing is the giver branch, since it provides the changes.
+	3. master is the receiver branch, since it accepts those changes.
+
+================================================================
+
+MERGE CONFLICT I
+
+The merge was successful because master had not changed since we made a commit on NEW branch.
+Git knew to simply update master with changes on fencing.
+
+What would happen if you made a commit on master before you merged the two branches?
+Furthermore, what if the commit you made on master altered the same exact text you worked on in new branch?
+When you switch back to master and ask Git to merge the two branches, Git doesn’t know which changes you want to keep.
+This is called a merge conflict.
+
+=================================================================
+
+MERGE CONFLICT II
+
+*git merge fencing (from master)
+
+Let’s say you decide you’d like to merge the changes from new branch into master.
+
+Here’s where the trouble begins!
+
+You’ve made commits on separate branches that alter the same line in conflicting ways.
+Now, when you try to merge fencing into master, Git will not know which version of the file to keep.
+
+*** CONFLICT (content): Merge conflict in resumé.txt
+Automatic merge failed; fix conflicts and then commit the result. ***
+
+
+We must fix the merge conflict.
+
+In the code editor, look at
+
+<<<<<<< HEAD
+master version of line
+=======
+fencing version of line
+>>>>>>> fencing
+
+Note: If the markings are not showing in resume.txt,
+please close resume.txt and re-open via the folder icon at the top left corner of the editor.
+
+Git asks us which version of the file to keep: the version on master or the version on fencing. You decide you want the fencing version.
+
+From the code editor:
+
+Delete the content of the line as it appears in the master branch
+
+Delete all of Git’s special markings including the words HEAD and fencing.
+If any of Git’s markings remain, for example, >>>>>>> and =======, the conflict remains.
+
+==================================================================
+
+DELETE BRANCHES
+
+*git branch -d 'branch_name'
+
+	In Git, branches are usually a means to an end.
+	You create them to work on a new project feature, but the end goal is to merge that feature into the master branch.
+	After the branch has been integrated into master, it has served its purpose and can be deleted.
+
+===================================================================
